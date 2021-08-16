@@ -1,8 +1,11 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:response/data/fileclound_data.dart';
+
+import 'package:response/pages/home/components/recenFile.dart';
+import 'package:response/pages/home/components/starageDetails.dart';
 
 import '../../../constant.dart';
+import '../../../responsive.dart';
 import 'header.dart';
 import 'myfile.dart';
 
@@ -25,9 +28,23 @@ class DashboardScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       MyFiles(),
+                      SizedBox(height: defaultPadding),
+                      RecentFiles(),
+                        if (Responsive.isMobile(context))
+                        SizedBox(height: defaultPadding),
+                      if (Responsive.isMobile(context)) StarageDetails(),
                     ],
                   ),
                 ),
+
+                if (!Responsive.isMobile(context))
+                  SizedBox(width: defaultPadding),
+               
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: StarageDetails(),
+                  ),
               ],
             ),
           ],
@@ -36,4 +53,5 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+
 

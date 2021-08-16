@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:response/controller/home_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:response/pages/home/components/dashboard.dart';
+import '../../responsive.dart';
 import 'components/side_menu.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,8 +16,12 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Row(
           children: [
+                 if (Responsive.isDesktop(context))
             Expanded(
               child: SideMenu(),
+            ),
+            SizedBox(
+              width: 5,
             ),
             Expanded(
               flex: 5,
