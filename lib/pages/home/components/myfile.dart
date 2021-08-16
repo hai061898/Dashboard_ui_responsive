@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:response/data/fileclound_data.dart';
 
 import '../../../constant.dart';
+import '../../../responsive.dart';
 
 class MyFiles extends StatelessWidget {
   const MyFiles({
@@ -35,6 +36,16 @@ class MyFiles extends StatelessWidget {
           ],
         ),
         SizedBox(height: defaultPadding),
+         Responsive(
+          mobile:  FileInfocardGridview(
+            crossAxisCount: _size.width < 650 ? 2 : 4,
+            childAspectRatio: _size.width < 650 ? 1.3 : 1,
+          ),
+          tablet:  FileInfocardGridview(),
+          desktop:  FileInfocardGridview(
+            childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
+          ),
+        ),
       ],
     );
   }
